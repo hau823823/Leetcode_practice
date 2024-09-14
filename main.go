@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"leetcode/minCost2ConnectAllPoints"
+	"leetcode/networkDelayTime"
 )
 
 /**
@@ -1605,5 +1606,11 @@ func main() {
 
 	// min cost to connect all points
 	points := [][]int{{0, 0}, {2, 2}, {3, 10}, {5, 2}, {7, 0}}
-	fmt.Println(minCost2ConnectAllPoints.MinCostConnectPoints(points))
+	fmt.Println(minCost2ConnectAllPoints.MinCostConnectPointsOp(points))
+
+	// net work delay time
+	times := [][]int{{2, 1, 1}, {2, 3, 1}, {3, 4, 1}}
+	n := 4
+	k := 2
+	fmt.Println(networkDelayTime.NetworkDelayTime(times, n, k))
 }
