@@ -2,6 +2,22 @@ package networkDelayTime
 
 import "container/heap"
 
+// min heap
+type minHeap []heapNode
+
+func (h minHeap) Len() int           { return len(h) }
+func (h minHeap) Less(i, j int) bool { return h[i].distance < h[j].distance }
+func (h minHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
+func (h *minHeap) Push(x any)        { *h = append(*h, x.(heapNode)) }
+func (h *minHeap) Pop() any {
+	x := (*h)[len(*h)-1]
+	*h = (*h)[:len(*h)-1]
+	return x
+}
+
+// bfs
+// Dijkstra's algorithm
+
 type neighbour struct {
 	destination int
 	weight      int
@@ -12,64 +28,48 @@ type heapNode struct {
 	nodeIndex int
 }
 
-func networkDelayTime(times [][]int, n int, k int) int {
+func NetworkDelayTime(times [][]int, n int, k int) int {
 	edgeMap := make(map[int][]neighbour)
-	for _, log := range times {
-		edgeMap[log[0]] = append(edgeMap[log[0]], neighbour{destination: log[1], weight: log[2]})
+	for _, time := range times {
+		edgeMap[time[0]] = append(edgeMap[time[0]], neighbour{time[1], time[2]})
 	}
 
-	h := &minHeap{heapNode{distance: 0, nodeIndex: k}}
+	h := &minHeap{heapNode{0, k}}
 	heap.Init(h)
+
 	visited := make(map[int]bool)
-	t := 0
+	res := 0
 
-	for !h.isEmpty() {
-		hNode := heap.Pop(h).(heapNode)
+	for h.Len() > 0 {
+		node := heap.Pop(h).(heapNode)
 
-		if vis := visited[hNode.nodeIndex]; vis {
+		if exist := visited[node.nodeIndex]; exist {
 			continue
 		}
 
-		t = max(t, hNode.distance)
+		res = max(res, node.distance)
+		visited[node.nodeIndex] = true
 
-		visited[hNode.nodeIndex] = true
-
-		neighbours := edgeMap[hNode.nodeIndex]
+		neighbours := edgeMap[node.nodeIndex]
 		for _, neigh := range neighbours {
-			if vis := visited[neigh.destination]; !vis {
+			if exist := visited[neigh.destination]; !exist {
 				heap.Push(h, heapNode{
-					distance:  neigh.weight + hNode.distance,
-					nodeIndex: neigh.destination})
+					distance:  neigh.weight + node.distance,
+					nodeIndex: neigh.destination,
+				})
 			}
 		}
 	}
 
 	if n == len(visited) {
-		return t
+		return res
 	}
 	return -1
 }
 
 func max(a, b int) int {
-	if a < b {
-		return b
+	if a > b {
+		return a
 	}
-	return a
-}
-
-type minHeap []heapNode
-
-func (h minHeap) Len() int           { return len(h) }
-func (h *minHeap) isEmpty() bool     { return len(*h) == 0 }
-func (h minHeap) Less(i, j int) bool { return h[i].distance < h[j].distance }
-func (h minHeap) Swap(i, j int)      { h[i], h[j] = h[j], h[i] }
-
-func (h *minHeap) Push(x interface{}) {
-	*h = append(*h, x.(heapNode))
-}
-
-func (h *minHeap) Pop() interface{} {
-	l := (*h)[len(*h)-1]
-	*h = (*h)[:len(*h)-1]
-	return l
+	return b
 }
