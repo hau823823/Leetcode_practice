@@ -5,6 +5,7 @@ import (
 )
 
 // heap
+// find min elements time complexity: O(logn)
 type IntHeap [][2]int
 
 func (h IntHeap) Len() int           { return len(h) }
@@ -109,5 +110,5 @@ func abs(n int) int {
 }
 
 func getManhattenDistance(x1, y1, x2, y2 int) int {
-	return abs(x1 - x2) + abs(y1 - y2)
+	return abs(x1-x2) + abs(y1-y2)
 }
