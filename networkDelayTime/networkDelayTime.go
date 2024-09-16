@@ -73,6 +73,3 @@ func max(a, b int) int {
 	}
 	return b
 }
-
-// test
-// another test
