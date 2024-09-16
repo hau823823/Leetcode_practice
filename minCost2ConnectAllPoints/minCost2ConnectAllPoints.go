@@ -67,8 +67,8 @@ func MinCostConnectPointsOp(points [][]int) int {
 		return 0
 	}
 
-	total := 0
-	dists := make([]int, nPoint)
+	total := 0                   // 用于累积所有选取的边的总成本
+	dists := make([]int, nPoint) // 用于存储其他未访问点到当前访问点的最短曼哈顿距离
 
 	// start explore from points[0]
 	curPoint := 0
@@ -80,7 +80,7 @@ func MinCostConnectPointsOp(points [][]int) int {
 		for i := range points {
 			if dists[i] >= 0 {
 				d := getManhattenDistance(points[curPoint][0], points[curPoint][1], points[i][0], points[i][1])
-				
+
 				if dists[i] == 0 || dists[i] > d {
 					dists[i] = d
 				}
