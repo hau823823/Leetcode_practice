@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"leetcode/networkDelayTime"
+	"leetcode/cheapestFlightsWithinKStops"
 )
 
 /**
@@ -1610,6 +1610,7 @@ func main() {
 	*/
 
 	// net work delay time
+	/**
 	times := [][]int{{2, 1, 1}, {2, 3, 1}, {3, 4, 1}}
 	n := 4
 	k := 2
@@ -1624,6 +1625,25 @@ func main() {
 	n2 := 2
 	k2 := 2
 	fmt.Println(networkDelayTime.NetworkDelayTime(times2, n2, k2))
+	*/
 
-	// cheapest flights withib k stops
+	// cheapest flights within k stops
+	// flight: {from, to, price}
+	// n: amount of cities
+	// k: how many stops are allowed at most
+	n := 4
+	flights := [][]int{{0, 1, 100}, {1, 2, 100}, {2, 0, 100}, {1, 3, 600}, {2, 3, 200}}
+	src, dst, k := 0, 3, 1
+	fmt.Println(cheapestFlightsWithinKStops.FindCheapestPrice(n, flights, src, dst, k))
+
+	n1 := 3
+	flights1 := [][]int{{0, 1, 100}, {1, 2, 100}, {0, 2, 500}}
+	src1, dst1, k1 := 0, 2, 1
+	fmt.Println(cheapestFlightsWithinKStops.FindCheapestPrice(n1, flights1, src1, dst1, k1))
+
+	n2 := 3
+	flights2 := [][]int{{0, 1, 100}, {1, 2, 100}, {0, 2, 500}}
+	src2, dst2, k2 := 0, 2, 0
+	fmt.Println(cheapestFlightsWithinKStops.FindCheapestPrice(n2, flights2, src2, dst2, k2))
+
 }
