@@ -7,9 +7,7 @@ func MaxSubArraryGreedy(nums []int) int {
 
 	for i := 0; i < len(nums); i++ {
 		sum += nums[i]
-		if sum > max {
-            max = sum
-        }
+		max = maxInt(max, sum)
 		if sum < 0 {
 			sum = 0
 		}
