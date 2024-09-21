@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"leetcode/cheapestFlightsWithinKStops"
+	"leetcode/longestCommonSubsequence"
 )
 
 /**
@@ -1631,6 +1631,7 @@ func main() {
 	// flight: {from, to, price}
 	// n: amount of cities
 	// k: how many stops are allowed at most
+	/**
 	n := 4
 	flights := [][]int{{0, 1, 100}, {1, 2, 100}, {2, 0, 100}, {1, 3, 600}, {2, 3, 200}}
 	src, dst, k := 0, 3, 1
@@ -1645,5 +1646,14 @@ func main() {
 	flights2 := [][]int{{0, 1, 100}, {1, 2, 100}, {0, 2, 500}}
 	src2, dst2, k2 := 0, 2, 0
 	fmt.Println(cheapestFlightsWithinKStops.FindCheapestPrice(n2, flights2, src2, dst2, k2))
+	*/
 
+	// longest common sub sequence
+	text1 := "abcde"
+	text2 := "ace"
+	fmt.Println(longestCommonSubsequence.LongestCommonSubsequence(text1, text2))
+
+	text1_1 := "abc"
+	text2_1 := "def"
+	fmt.Println(longestCommonSubsequence.LongestCommonSubsequence(text1_1, text2_1))
 }
