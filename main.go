@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"leetcode/longestCommonSubsequence"
+	"leetcode/bestTimeBuySellStocksWithCooldown"
 )
 
 /**
@@ -53,6 +53,10 @@ func main() {
 	prices1 := []int{1,2,3,4,5}
 	fmt.Println(bestTimeBullSellStocks2.MaxProfit(prices1))
 	*/
+
+	// best time to buy and sell stock with cooldown
+	prices := []int{1, 2, 3, 0, 2}
+	fmt.Println(bestTimeBuySellStocksWithCooldown.MaxProfit(prices))
 
 	// maximum subarray
 	/**
@@ -1649,6 +1653,7 @@ func main() {
 	*/
 
 	// longest common sub sequence
+	/**
 	text1 := "abcde"
 	text2 := "ace"
 	fmt.Println(longestCommonSubsequence.LongestCommonSubsequence(text1, text2))
@@ -1656,4 +1661,5 @@ func main() {
 	text1_1 := "abc"
 	text2_1 := "def"
 	fmt.Println(longestCommonSubsequence.LongestCommonSubsequence(text1_1, text2_1))
+	*/
 }
