@@ -57,7 +57,9 @@ func main() {
 	// best time to buy and sell stock with cooldown
 	prices := []int{1, 2, 3, 0, 2}
 	fmt.Println(bestTimeBuySellStocksWithCooldown.MaxProfit(prices))
-	// test
+
+	prices1 := []int{1}
+	fmt.Println(bestTimeBuySellStocksWithCooldown.MaxProfit(prices1))
 
 	// maximum subarray
 	/**
