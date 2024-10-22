@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"leetcode/bestTimeBuySellStocksWithCooldown"
+	"leetcode/coinChangeII"
 )
 
 /**
@@ -55,11 +55,13 @@ func main() {
 	*/
 
 	// best time to buy and sell stock with cooldown
+	/**
 	prices := []int{1, 2, 3, 0, 2}
 	fmt.Println(bestTimeBuySellStocksWithCooldown.MaxProfit(prices))
 
 	prices1 := []int{1}
 	fmt.Println(bestTimeBuySellStocksWithCooldown.MaxProfit(prices1))
+	*/
 
 	// maximum subarray
 	/**
@@ -1665,4 +1667,9 @@ func main() {
 	text2_1 := "def"
 	fmt.Println(longestCommonSubsequence.LongestCommonSubsequence(text1_1, text2_1))
 	*/
+
+	// coin change II
+	amount := 5
+	coins := []int{1, 2, 5}
+	fmt.Println(coinChangeII.Change(amount, coins))
 }
