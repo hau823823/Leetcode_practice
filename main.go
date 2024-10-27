@@ -1678,5 +1678,5 @@ func main() {
 	// target sum
 	nums := []int{1, 1, 1, 1, 1}
 	target := 3
-	fmt.Println(targetSum.FindTargetSumWays(nums, target))
+	fmt.Println(targetSum.FindTargetSumWaysMemo(nums, target))
 }
