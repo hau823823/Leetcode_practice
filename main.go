@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"leetcode/coinChangeII"
+	"leetcode/targetSum"
 )
 
 /**
@@ -1669,7 +1669,14 @@ func main() {
 	*/
 
 	// coin change II
+	/**
 	amount := 5
 	coins := []int{1, 2, 5}
 	fmt.Println(coinChangeII.Change(amount, coins))
+	*/
+
+	// target sum
+	nums := []int{1, 1, 1, 1, 1}
+	target := 3
+	fmt.Println(targetSum.FindTargetSumWays(nums, target))
 }
